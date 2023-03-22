@@ -19,13 +19,13 @@ const Nav = styled.nav`
   padding-right: 50px;
 `
 export const Layout = () => {
-    const navigate = useNavigate()
-    return <Container>
-        <Nav>
-            <button onClick={() => navigate('sign-in')}>Sign in</button>
-            <button onClick={() => navigate('register')}>Register</button>
-            <button onClick={() => navigate('')}>Sign out</button>
-        </Nav>
-        <Outlet />
-    </Container>;
+  const navigate = useNavigate()
+  return <Container>
+    <Nav>
+      <button onClick={() => navigate('login')}>Sign in</button>
+      <button onClick={() => navigate('register')}>Register</button>
+      <button onClick={() => navigate('')}>Sign out</button>
+    </Nav>
+    <Outlet />
+  </Container>;
 };

@@ -20,12 +20,12 @@ export const App = () => {
         />
 
         <Route
-          path="/sign-in"
+          path="/login"
           //element={<RestrictedRoute component={<SignIn />} 
           element={<SignIn />}
         />
         <Route
-          path="/phonebook"
+          path="/contacts"
           //element={<ProtectedRoute component={<Phonebook />} redirectTo={'/sign-in'} 
           element={<Phonebook />}
         />
