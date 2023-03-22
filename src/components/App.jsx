@@ -1,16 +1,35 @@
+import { Layout } from "./Layout";
+import { Home } from "pages/Home";
+import { Phonebook } from "pages/Phonebook";
+import { Register } from "pages/Register";
+import { SignIn } from "pages/SignIn";
+import { Routes, Route } from 'react-router-dom';
+
+// import { ProtectedRoute } from "./ProtectedRoute";
+// import { RestrictedRoute } from "./RestrictedRoute";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="/register"
+          //element={<RestrictedRoute component={<Register />} 
+          element={<Register />}
+        />
+
+        <Route
+          path="/sign-in"
+          //element={<RestrictedRoute component={<SignIn />} 
+          element={<SignIn />}
+        />
+        <Route
+          path="/phonebook"
+          //element={<ProtectedRoute component={<Phonebook />} redirectTo={'/sign-in'} 
+          element={<Phonebook />}
+        />
+      </Route>
+    </Routes>
   );
 };

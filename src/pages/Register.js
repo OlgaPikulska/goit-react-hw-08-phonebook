@@ -17,7 +17,9 @@ export const Register = () => {
     // };
 
     return (
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <form
+            //onSubmit={handleSubmit}
+            autoComplete="off">
             <label>
                 Username
                 <input type="text" name="name" />

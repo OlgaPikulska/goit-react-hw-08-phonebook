@@ -15,7 +15,9 @@ export const SignIn = () => {
     // };
 
     return (
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <form
+            //onSubmit={handleSubmit}
+            autoComplete="off">
             <label>
                 Email
                 <input type="email" name="email" />
