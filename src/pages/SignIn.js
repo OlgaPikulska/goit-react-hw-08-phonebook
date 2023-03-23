@@ -1,22 +1,22 @@
 import React from 'react'
-//import { useDispatch } from "react-redux";
-//import { signIn } from "../redux/auth/auth.thunk";
+import { useDispatch } from "react-redux";
+import { logIn } from 'redux/auth/operations';
 
 export const SignIn = () => {
-    // const dispatch = useDispatch()
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     const form = e.currentTarget;
-    //     dispatch(signIn({
-    //         password: form.elements.password.value,
-    //         email: form.elements.email.value
-    //     }))
-    //     form.reset();
-    // };
+    const dispatch = useDispatch()
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        dispatch(logIn({
+            password: form.elements.password.value,
+            email: form.elements.email.value
+        }))
+        form.reset();
+    };
 
     return (
         <form
-            //onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             autoComplete="off">
             <label>
                 Email
