@@ -4,11 +4,23 @@ import { Phonebook } from "pages/Phonebook";
 import { Register } from "pages/Register";
 import { SignIn } from "pages/SignIn";
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { refreshUser } from "redux/auth/operations";
+import { useEffect } from "react";
+import { useAuth } from "hooks/useAuth";
 
 // import { ProtectedRoute } from "./ProtectedRoute";
 // import { RestrictedRoute } from "./RestrictedRoute";
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const isAuthorized = useAuth();
+  console.log(isAuthorized);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
