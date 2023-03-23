@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { StyledButton } from "./ContactForm";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "redux/operations";
+import { deleteContact } from "redux/contacts/operations";
 import PropTypes from "prop-types"
 
 const StyledNumber = styled.span`

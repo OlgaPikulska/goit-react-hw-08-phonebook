@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { addWantedValue } from "redux/filterSlice";
+import { addWantedValue } from "redux/filter/filterSlice";
 
 const StyledLabel = styled.label`
 display: flex;
