@@ -9,13 +9,13 @@ import { refreshUser } from "redux/auth/operations";
 import { useEffect } from "react";
 import { useAuth } from "hooks/useAuth";
 
-// import { ProtectedRoute } from "./ProtectedRoute";
+import { PrivateRoute } from "./PrivateRoute";
 // import { RestrictedRoute } from "./RestrictedRoute";
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isAuthorized = useAuth();
-  console.log(isAuthorized);
+  const isLoggedIn = useAuth();
+  console.log("useAuth", isLoggedIn);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,9 +38,10 @@ export const App = () => {
         />
         <Route
           path="/contacts"
-          //element={<ProtectedRoute component={<Phonebook />} redirectTo={'/sign-in'} 
-          element={<Phonebook />}
+          element={<PrivateRoute component={<Phonebook />} redirectTo={'/login'} />}
+        //element={<Phonebook />}
         />
+
       </Route>
     </Routes>
   );
