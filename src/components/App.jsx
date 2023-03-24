@@ -16,7 +16,7 @@ const Register = lazy(() => import("../pages/Register"));
 const SignIn = lazy(() => import("../pages/SignIn"));
 
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;

@@ -28,10 +28,12 @@ border: 1px solid rgb(148, 146, 146);
 border-radius: 3px;
 cursor: pointer;
 :hover {
-    background-color: rgb(79, 158, 215);
+    background-color: #1ED760;
+    border-color: #1ED760;
 }
 :focus {
-    background-color: rgb(79, 158, 215);
+    background-color: #1ED760;
+    border-color: #1ED760;
 }
 `
 

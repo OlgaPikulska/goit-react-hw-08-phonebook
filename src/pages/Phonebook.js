@@ -1,16 +1,25 @@
-//import { useDispatch } from "react-redux";
-//import { useEffect } from "react";
-//import { fetchTasks } from "../redux/tasks/tasks.thunk";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { fetchContacts } from "redux/contacts/operations";
 import { Section } from "components/Section";
 import { ContactForm } from "components/ContactForm";
 import { Filter } from "components/Filter";
 import { ContactList } from "components/ContactList";
+import { Circles } from "react-loader-spinner";
+import { StyledDiv } from "components/App";
+import { selectError, selectIsLoading } from "redux/selectors";
+
 
 const Phonebook = () => {
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(fetchTasks('arg'))
-    // }, [])
+    const dispatch = useDispatch()
+    const error = useSelector(selectError);
+    const isLoading = useSelector(selectIsLoading);
+
+
+    useEffect(() => {
+        dispatch(fetchContacts())
+    }, [dispatch])
 
     return (
         <>
@@ -19,10 +28,10 @@ const Phonebook = () => {
             </Section>
             <Section title="Contacts">
                 <Filter />
-                {/* {isLoading && !error &&
-                    <StyledNotification>
-                        Request in progress...
-                    </StyledNotification>} */}
+                {isLoading && !error &&
+                    <StyledDiv>
+                        <Circles />
+                    </StyledDiv>}
                 <ContactList />
             </Section>
         </>
