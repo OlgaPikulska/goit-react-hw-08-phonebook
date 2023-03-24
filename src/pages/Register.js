@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
+import { StyledButton } from "components/Layout";
+import { StyledForm, StyledLabel } from "./SignIn";
+
 
 export const Register = () => {
 
@@ -17,22 +20,22 @@ export const Register = () => {
     };
 
     return (
-        <form
+        <StyledForm
             onSubmit={handleSubmit}
             autoComplete="off">
-            <label>
+            <StyledLabel>
                 Username
                 <input type="text" name="name" />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
                 Email
                 <input type="email" name="email" />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
                 Password
                 <input type="password" name="password" />
-            </label>
-            <button type="submit">Register</button>
-        </form>
+            </StyledLabel>
+            <StyledButton type="submit">Register</StyledButton>
+        </StyledForm>
     );
 };
