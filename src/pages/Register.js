@@ -4,7 +4,7 @@ import { StyledButton } from "components/Layout";
 import { StyledForm, StyledLabel } from "./SignIn";
 
 
-export const Register = () => {
+const Register = () => {
 
     const dispatch = useDispatch()
 
@@ -39,3 +39,5 @@ export const Register = () => {
         </StyledForm>
     );
 };
+
+export default Register;

@@ -6,7 +6,7 @@ import { ContactForm } from "components/ContactForm";
 import { Filter } from "components/Filter";
 import { ContactList } from "components/ContactList";
 
-export const Phonebook = () => {
+const Phonebook = () => {
     // const dispatch = useDispatch()
     // useEffect(() => {
     //     dispatch(fetchTasks('arg'))
@@ -28,3 +28,5 @@ export const Phonebook = () => {
         </>
     );
 };
+
+export default Phonebook;

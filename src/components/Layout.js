@@ -3,6 +3,8 @@ import { Outlet } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 import { UserMenu } from "./UserMenu";
+import { Suspense } from 'react';
+import { Circles } from "react-loader-spinner";
 
 const Container = styled.main`
 display: grid;
@@ -63,6 +65,8 @@ export const Layout = () => {
       {isLoggedIn && <UserMenu />}
 
     </Nav>
-    <Outlet />
+    <Suspense fallback={<Circles />}>
+      <Outlet />
+    </Suspense>
   </Container>;
 };

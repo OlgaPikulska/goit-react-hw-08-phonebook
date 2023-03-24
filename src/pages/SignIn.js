@@ -16,7 +16,7 @@ display: flex;
 flex-direction: column;
 `
 
-export const SignIn = () => {
+const SignIn = () => {
     const dispatch = useDispatch()
     const handleSubmit = e => {
         e.preventDefault();
@@ -44,3 +44,5 @@ export const SignIn = () => {
         </StyledForm>
     );
 }
+
+export default SignIn;
