@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useAuth } from "hooks/useAuth";
 
 import { PrivateRoute } from "./PrivateRoute";
-// import { RestrictedRoute } from "./RestrictedRoute";
+import { RestrictedRoute } from "./RestrictedRoute";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,21 +27,20 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route
           path="/register"
-          //element={<RestrictedRoute component={<Register />} 
-          element={<Register />}
+          element={<RestrictedRoute component={<Register />}
+            redirectTo='/contacts' />}
         />
 
         <Route
           path="/login"
-          //element={<RestrictedRoute component={<SignIn />} 
-          element={<SignIn />}
+          element={<RestrictedRoute component={<SignIn />}
+            redirectTo='/contacts'
+          />}
         />
         <Route
           path="/contacts"
-          element={<PrivateRoute component={<Phonebook />} redirectTo={'/login'} />}
-        //element={<Phonebook />}
+          element={<PrivateRoute component={<Phonebook />} redirectTo='/login' />}
         />
-
       </Route>
     </Routes>
   );

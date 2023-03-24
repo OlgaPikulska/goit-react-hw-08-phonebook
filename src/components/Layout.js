@@ -22,9 +22,9 @@ export const Layout = () => {
   const navigate = useNavigate()
   return <Container>
     <Nav>
-      <button onClick={() => navigate('login')}>Sign in</button>
+      <button onClick={() => navigate('login')}>Log in</button>
       <button onClick={() => navigate('register')}>Register</button>
-      <button onClick={() => navigate('')}>Sign out</button>
+      <button onClick={() => navigate('')}>Log out</button>
     </Nav>
     <Outlet />
   </Container>;
