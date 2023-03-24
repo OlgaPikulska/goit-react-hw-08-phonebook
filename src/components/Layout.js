@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { logOut } from "redux/auth/operations";
+import { useDispatch } from "react-redux";
+import { useAuth } from "hooks/useAuth";
 
 const Container = styled.main`
 display: grid;
@@ -19,12 +22,22 @@ const Nav = styled.nav`
   padding-right: 50px;
 `
 export const Layout = () => {
-  const navigate = useNavigate()
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => dispatch(logOut());
+
+
   return <Container>
     <Nav>
-      <button onClick={() => navigate('login')}>Log in</button>
-      <button onClick={() => navigate('register')}>Register</button>
-      <button onClick={() => navigate('')}>Log out</button>
+      {!isLoggedIn &&
+        <>
+          <button onClick={() => navigate('login')}>Log in</button>
+          <button onClick={() => navigate('register')}>Register</button>
+        </>
+      }
+      {isLoggedIn && <button onClick={handleLogOut}>Log out</button>}
     </Nav>
     <Outlet />
   </Container>;

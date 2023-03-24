@@ -14,34 +14,36 @@ import { RestrictedRoute } from "./RestrictedRoute";
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useAuth();
+  const { isLoggedIn, isRefreshing } = useAuth();
   console.log("useAuth", isLoggedIn);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route
-          path="/register"
-          element={<RestrictedRoute component={<Register />}
-            redirectTo='/contacts' />}
-        />
+  return isRefreshing ?
+    <b>Refreshing user...</b>
+    : (
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/register"
+            element={<RestrictedRoute component={<Register />}
+              redirectTo='/contacts' />}
+          />
 
-        <Route
-          path="/login"
-          element={<RestrictedRoute component={<SignIn />}
-            redirectTo='/contacts'
-          />}
-        />
-        <Route
-          path="/contacts"
-          element={<PrivateRoute component={<Phonebook />} redirectTo='/login' />}
-        />
-      </Route>
-    </Routes>
-  );
+          <Route
+            path="/login"
+            element={<RestrictedRoute component={<SignIn />}
+              redirectTo='/contacts'
+            />}
+          />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={<Phonebook />} redirectTo='/login' />}
+          />
+        </Route>
+      </Routes>
+    );
 };
